@@ -1,0 +1,1 @@
+export function Footer(){return <footer><div className="wrap footer"><div><strong>Grundejerforeningen Ravnsbjerg</strong><small>Gjellerup · Herning</small></div><span>ravnsbjerg.info</span></div></footer>}
