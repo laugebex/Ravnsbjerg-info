@@ -1,7 +1,7 @@
 export const news = [
- {date:'2025',category:'Bestyrelsen',title:'Nyt i bestyrelsen',body:'Der er kommet nye folk med i bestyrelsen. Efter mange år med en stabil besætning har fraflytninger og ønsker om at træde ud givet plads til lidt fornyelse. De nye medlemmer er godt i gang, og arbejdet fortsætter som hidtil.'},
- {date:'Aktuelt',category:'Gjellerup Enge',title:'Ponyer og Galloway-køer i området',body:'De 11 ponyer i Gjellerup Enge har fået selskab af Galloway-køer. Hold lidt ekstra afstand til køer med nyfødte kalve, især hvis du har hund med, og lad være med at håndfodre dyrene.'},
- {date:'Aktuelt',category:'Gjellerup Enge',title:'Nye stier ved Lunden',body:'Der er kommet nye stier mellem Lunden og Nabkærstien. Fra det sydvestlige hjørne af Lunden kan man nu gå videre til den asfalterede Nabkærsti og komme mere tørskoet gennem området.'}
+ {date:'2025',category:'Bestyrelsen',title:'Nyt i bestyrelsen',body:'Der er kommet nye medlemmer ind i bestyrelsen efter nogle fraflytninger og udskiftninger. De nye er kommet i gang, og arbejdet fortsætter.'},
+ {date:'',category:'Gjellerup Enge',title:'Ponyer og Galloway-køer',body:'Der går ponyer og Galloway-køer i Gjellerup Enge. Hold afstand til køer med små kalve, især hvis du har hund med, og lad være med at fodre dyrene.'},
+ {date:'',category:'Gjellerup Enge',title:'Stier mellem Lunden og Nabkærstien',body:'Fra det sydvestlige hjørne af Lunden er der forbindelse videre til Nabkærstien. Det gør det nemmere at komme ud i området til fods.'}
 ]
 export const board=[
  {role:'Formand',name:'Henrik Wahlberg',address:'Ravnsbjerg Toft 29 · 7400 Herning',phone:'44 11 23 42'},
