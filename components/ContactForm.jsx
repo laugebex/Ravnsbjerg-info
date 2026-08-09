@@ -26,12 +26,12 @@ export function ContactForm(){
       form.reset()
       setStatus('sent')
     }catch(err){
-      setError('Beskeden kunne ikke sendes. Prøv igen om lidt.')
+      setError('Det lykkedes ikke at sende beskeden. Prøv igen om lidt.')
       setStatus('error')
     }
   }
 
-  if(status==='sent') return <div className="contactSuccess" role="status"><strong>Tak for din besked</strong><p>Din besked er sendt til bestyrelsen. Vi vender tilbage så snart vi kan.</p><button type="button" onClick={()=>setStatus('idle')}>Send en ny besked</button></div>
+  if(status==='sent') return <div className="contactSuccess" role="status"><strong>Tak. Beskeden er sendt.</strong><p>Vi vender tilbage, når vi kan.</p><button type="button" onClick={()=>setStatus('idle')}>Send en ny besked</button></div>
 
   return <form className="contactForm" onSubmit={handleSubmit}>
     <input type="text" name="_honey" className="honey" tabIndex="-1" autoComplete="off"/>
@@ -40,6 +40,6 @@ export function ContactForm(){
     <label>Besked<textarea name="message" rows="6" required/></label>
     <button type="submit" disabled={status==='sending'}>{status==='sending'?'Sender…':'Send besked'}</button>
     {status==='error'&&<p className="formError" role="alert">{error}</p>}
-    <small>Din besked sendes til bestyrelsen. Brug ikke formularen til følsomme personoplysninger.</small>
+    <small>Skriv ikke CPR-numre eller andre følsomme oplysninger i formularen.</small>
   </form>
 }
