@@ -1,6 +1,6 @@
 # ravnsbjerg.info v2
 
-Next.js 16 prototype for Grundejerforeningen Ravnsbjerg.
+Next.js 16 website for Grundejerforeningen Ravnsbjerg.
 
 ## Run locally
 ```bash
@@ -9,17 +9,19 @@ npm run dev
 ```
 
 ## Deploy to Vercel
-1. Create a GitHub repository and push this folder.
-2. Import the repository in Vercel.
+1. The GitHub repository is connected to Vercel.
+2. Production deploys are triggered from `main`.
 3. Framework preset: Next.js (auto-detected).
-4. No environment variables are required for this public prototype.
-5. Add `ravnsbjerg.info` and `www.ravnsbjerg.info` under Domains after the preview is approved.
+4. No environment variables are required for the current public site.
+5. `ravnsbjerg.info` and `www.ravnsbjerg.info` are configured as custom domains.
 
 ## Content editing
 Current public content lives in `data/content.js`. This is intentional: a CMS/Supabase admin can replace that data source later without redesigning the frontend.
 
-## Before production
-- Verify current board details and dates.
+## Contact form
+The contact form posts through FormSubmit and delivers to the configured board contact mailbox.
+
+## Next improvements
+- Verify board details and dates as they change.
 - Migrate PDFs/referater locally rather than depending on old-site URLs.
-- Add secure contact form.
-- Add admin/CMS only after public information architecture is approved.
+- Add admin/CMS only after the public information architecture is approved.
