@@ -1,7 +1,7 @@
 export const news = [
- {date:'2025',category:'Bestyrelsen',title:'Nyt i bestyrelsen',body:'Der er kommet nye medlemmer ind i bestyrelsen efter nogle fraflytninger og udskiftninger. De nye er kommet i gang, og arbejdet fortsætter.'},
+ {date:'',category:'Lunden',title:'Stier mellem Lunden og Nabkærstien',body:'Fra det sydvestlige hjørne af Lunden er der forbindelse videre til Nabkærstien. Det gør det nemmere at komme ud i området til fods.'},
  {date:'',category:'Gjellerup Enge',title:'Ponyer og Galloway-køer',body:'Der går ponyer og Galloway-køer i Gjellerup Enge. Hold afstand til køer med små kalve, især hvis du har hund med, og lad være med at fodre dyrene.'},
- {date:'',category:'Gjellerup Enge',title:'Stier mellem Lunden og Nabkærstien',body:'Fra det sydvestlige hjørne af Lunden er der forbindelse videre til Nabkærstien. Det gør det nemmere at komme ud i området til fods.'}
+ {date:'2025',category:'Bestyrelsen',title:'Nyt i bestyrelsen',body:'Der er kommet nye medlemmer ind i bestyrelsen efter nogle fraflytninger og udskiftninger. De nye er kommet i gang, og arbejdet fortsætter.'}
 ]
 export const board=[
  {role:'Formand',name:'Henrik Wahlberg',address:'Ravnsbjerg Toft 29 · 7400 Herning',phone:'44 11 23 42'},
