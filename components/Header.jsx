@@ -11,7 +11,7 @@ export function Header(){
     <nav className={open?'navLinks open':'navLinks'} aria-label="Hovedmenu">
       <Link onClick={close} href="/#nyheder">Nyt</Link>
       <Link onClick={close} href="/#lunden">Lunden</Link>
-      <Link onClick={close} href="/omraadet">Om området</Link>
+      <Link onClick={close} href="/omraadet">Ny i Ravnsbjerg</Link>
       <Link onClick={close} href="/vedtaegter">Vedtægter</Link>
       <Link onClick={close} href="/#bestyrelsen">Bestyrelsen</Link>
       <Link onClick={close} className="pill" href="/#kontakt">Kontakt</Link>
