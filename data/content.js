@@ -1,16 +1,15 @@
 export const news = [
  {date:'',category:'Lunden',title:'Stier mellem Lunden og Nabkærstien',body:'Fra det sydvestlige hjørne af Lunden er der forbindelse videre til Nabkærstien. Det gør det nemmere at komme ud i området til fods.'},
  {date:'',category:'Gjellerup Enge',title:'Ponyer og Galloway-køer',body:'Der går ponyer og Galloway-køer i Gjellerup Enge. Hold afstand til køer med små kalve, især hvis du har hund med, og lad være med at fodre dyrene.'},
- {date:'2025',category:'Bestyrelsen',title:'Nyt i bestyrelsen',body:'Der er kommet nye medlemmer ind i bestyrelsen efter nogle fraflytninger og udskiftninger. De nye er kommet i gang, og arbejdet fortsætter.'}
+ {date:'2026',category:'Bestyrelsen',title:'Bestyrelsen er opdateret',body:'Lauge Bechshøft er formand, Ditte Rejkjær Andersen er næstformand, og Jakob Søndergaard fortsætter som kasserer.'}
 ]
 export const board=[
- {role:'Formand',name:'Henrik Wahlberg',address:'Ravnsbjerg Toft 29 · 7400 Herning',phone:'44 11 23 42'},
- {role:'Næstformand',name:'Bent Bonne',address:'Ravnsbjerg Mark 8 · 7400 Herning',phone:'40 30 96 95'},
- {role:'Kasserer',name:'Jakob Søndergaard',address:'Ravnsbjerg Krat 7 · 7400 Herning'},
- {role:'Bestyrelsesmedlem',name:'Lauge Bechshøft',address:'Ravnsbjerg Vej 30 · 7400 Herning',phone:'20 21 37 38'},
- {role:'Bestyrelsesmedlem',name:'Carsten Spile',address:'Ravnsbjerg Mark 13 · 7400 Herning',phone:'25 78 00 39'},
- {role:'Suppleant',name:'Ditte Rejkjær Andersen',address:'Ravnsbjerg Vej 26 · 7400 Herning'},
- {role:'Suppleant',name:'Martin Hansen',address:'Ravnsbjerg Hegn · 7400 Herning'}
+ {role:'Formand',name:'Lauge Bechshøft',address:'Ravnsbjergvej 30'},
+ {role:'Næstformand',name:'Ditte Rejkjær Andersen',address:'Ravnsbjergvej 26'},
+ {role:'Kasserer',name:'Jakob Søndergaard',address:'Ravnsbjerg Krat 7'},
+ {role:'Medlem af bestyrelsen',name:'Carsten Spile',address:'Ravnsbjerg Mark 13'},
+ {role:'Medlem af bestyrelsen',name:'Jørgen Ahler Arboe',address:'Ravnsbjergvej 28'},
+ {role:'Suppleant',name:'Trine Ulsø Thomsen',address:'Ravnsbjerg Toft 8'}
 ]
 export const documents=[
  {title:'Vedtægter',meta:'Gældende vedtægter, senest ændret 22. april 2022',href:'/vedtaegter'},
