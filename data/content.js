@@ -16,5 +16,5 @@ export const documents=[
  {title:'Andelsbevis – Lunden',meta:'Historisk dokument',href:'https://398e19644f.clvaw-cdnwnd.com/924937a717deb337e31c66e81824097a/200000003-e31c7e31c8/Andelsbevis.pdf?ph=398e19644f'},
  {title:'Skøde – Lunden',meta:'Historisk dokument',href:'https://398e19644f.clvaw-cdnwnd.com/924937a717deb337e31c66e81824097a/200000002-dd584dd586/Sk%C3%B8de.pdf?ph=398e19644f'},
  {title:'Årsberetning for Gjellerup Enge 2024',meta:'PDF',href:'https://398e19644f.clvaw-cdnwnd.com/924937a717deb337e31c66e81824097a/200000012-376e1376e4/%C3%85rsberetning%20for%20Gjellerup%20enge%202024.pdf?ph=398e19644f'},
- {title:'Referat – generalforsamling 2026',meta:'11. marts 2026 · PDF',href:'/dokumenter/referat-generalforsamling-2026'}
+ {title:'Referat – generalforsamling 2026',meta:'11. marts 2026 · PDF',href:'/dokumenter/referat-generalforsamling-2026?v=2'}
 ]
