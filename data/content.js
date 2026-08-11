@@ -1,7 +1,7 @@
 export const news = [
- {date:'',category:'Lunden',title:'Stier mellem Lunden og Nabkærstien',body:'Fra det sydvestlige hjørne af Lunden er der forbindelse videre til Nabkærstien. Det gør det nemmere at komme ud i området til fods.'},
- {date:'',category:'Gjellerup Enge',title:'Ponyer og Galloway-køer',body:'Der går ponyer og Galloway-køer i Gjellerup Enge. Hold afstand til køer med små kalve, især hvis du har hund med, og lad være med at fodre dyrene.'},
- {date:'2026',category:'Bestyrelsen',title:'Bestyrelsen er opdateret',body:'Lauge Bechshøft er formand, Ditte Rejkjær Andersen er næstformand, og Jakob Søndergaard fortsætter som kasserer.'}
+ {date:'11. marts 2026',category:'Bestyrelsen',title:'Bestyrelsen efter generalforsamlingen',body:'Efter generalforsamlingen består bestyrelsen af Lauge Bechshøft som formand, Ditte Rejkjær Andersen som næstformand, Jakob Søndergaard som kasserer, Carsten Spile og Jørgen Ahler Arboe som medlemmer samt Trine Ulsø Thomsen som suppleant.',href:'/dokumenter/referat-generalforsamling-2026?v=2',link:'Læs referatet →'},
+ {date:'11. marts 2026',category:'Generalforsamling',title:'Referatet er lagt på hjemmesiden',body:'Referatet fra den ordinære generalforsamling er klar. Her kan du blandt andet se regnskab, kontingent, indkomne forslag og valg til bestyrelsen.',href:'/dokumenter/referat-generalforsamling-2026?v=2',link:'Åbn referatet →'},
+ {date:'',category:'Gjellerup Enge',title:'Ponyer og Galloway-køer',body:'Der går ponyer og Galloway-køer i Gjellerup Enge. Hold afstand til køer med små kalve, især hvis du har hund med, og lad være med at fodre dyrene.',href:'/omraadet#gjellerup-enge',link:'Se mere om Gjellerup Enge →'}
 ]
 export const board=[
  {role:'Formand',name:'Lauge Bechshøft',address:'Ravnsbjergvej 30'},
