@@ -5,7 +5,7 @@ const enge='/images/gjellerup-enge.webp'
 const engeAerial='https://naturfonden.dk/wp-content/uploads/2021/05/FOTO-Tobias-Noergaard-Pedersen-Herning-Kommune-3.jpg'
 const title='Om området | Grundejerforeningen Ravnsbjerg'
 const description='Et kort overblik over Ravnsbjerg, Lunden, Gjellerup Enge, skole, indkøb, Hall’n og årets faste arrangementer.'
-export const metadata={title,description,openGraph:{title,description,url:'/omraadet',images:['/images/ravnsbjerg-og.png']}}
+export const metadata={title,description,openGraph:{title,description,url:'/omraadet'}}
 
 export default function Omraadet(){return <main>
 <section className="areaHero"><div className="wrap areaHeroGrid"><div><p className="eyebrow">Ravnsbjerg · Gjellerup</p><h1>Ny i Ravnsbjerg?</h1><p className="lead">Her er den korte udgave: hvor vi bor, hvad der ligger tæt på, og hvad der plejer at ske i løbet af året.</p><p className="areaIntro">Datoer, små nyheder og arrangementer kommer løbende i <a href={facebook}>den private Facebook-gruppe →</a></p></div><div className="areaHeroPhoto"><img src={enge} width="287" height="510" alt="Natur ved Gjellerup Enge" fetchPriority="high"/></div></div></section>
