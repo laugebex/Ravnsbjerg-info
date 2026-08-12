@@ -14,11 +14,10 @@ export const metadata={
     url:'https://www.ravnsbjerg.info',
     siteName:'Grundejerforeningen Ravnsbjerg',
     locale:'da_DK',
-    type:'website',
-    images:[{url:'/images/lunden-2.webp',width:450,height:338,alt:'Lunden ved Ravnsbjerg'}]
+    type:'website'
   }
 }
 
 export default function RootLayout({children}){
-  return <html lang="da"><body><a className="skipLink" href="#main-content">Spring til indhold</a><Header/><div id="main-content">{children}</div><Footer/></body></html>
+  return <html lang="da"><body><a className="skipLink" href="#main-content">Spring til indhold</a><Header/><div id="main-content" tabIndex="-1">{children}</div><Footer/></body></html>
 }
