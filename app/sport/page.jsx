@@ -1,6 +1,6 @@
 const title='Hall’n | Grundejerforeningen Ravnsbjerg'
 const description='Lokale sports- og fritidsmuligheder i Hall’n i Hammerum-Gjellerup.'
-export const metadata={title,description,openGraph:{title,description,url:'/sport',images:['/images/ravnsbjerg-og.png']}}
+export const metadata={title,description,openGraph:{title,description,url:'/sport'}}
 
 const activities=['Badminton','Bordtennis','Fitness','Fodbold','Gymnastik','Håndbold','Kroket','Linedance','Motion & Kultur','Padel','Skydning','Spinning','Svømning','Tennis','Volleyball','Squash']
 
