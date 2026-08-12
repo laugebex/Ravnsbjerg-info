@@ -5,7 +5,7 @@ const engeAerial='https://naturfonden.dk/wp-content/uploads/2021/05/FOTO-Tobias-
 const engeReport='https://398e19644f.clvaw-cdnwnd.com/924937a717deb337e31c66e81824097a/200000012-376e1376e4/%C3%85rsberetning%20for%20Gjellerup%20enge%202024.pdf?ph=398e19644f'
 const title='Gjellerup Enge | Grundejerforeningen Ravnsbjerg'
 const description='Naturprojektet Gjellerup Enge ved Ravnsbjerg: stier, natur, iNaturalist og nogle af de arter, der er registreret i området.'
-export const metadata={title,description,openGraph:{title,description,url:'/gjellerup-enge',images:['/images/ravnsbjerg-og.png']}}
+export const metadata={title,description,openGraph:{title,description,url:'/gjellerup-enge'}}
 
 const wildlife=[
  {name:'Tredækker',latin:'Gallinago media',text:'En sjælden trækgæst, registreret i Gjellerup Enge i 2025.',img:'https://commons.wikimedia.org/wiki/Special:FilePath/Great%20Snipe%20%28Gallinago%20media%29%20%2814366171534%29.jpg',credit:'Ron Knight · CC BY 2.0',creditUrl:'https://commons.wikimedia.org/wiki/File:Great_Snipe_(Gallinago_media)_(14366171534).jpg'},
