@@ -1,6 +1,6 @@
 const title='Generalforsamling | Grundejerforeningen Ravnsbjerg'
 const description='Frister, seneste referat og praktisk information om generalforsamlingen i Grundejerforeningen Ravnsbjerg.'
-export const metadata={title,description,openGraph:{title,description,url:'/generalforsamling',images:['/images/ravnsbjerg-og.png']}}
+export const metadata={title,description,openGraph:{title,description,url:'/generalforsamling'}}
 
 export default function Generalforsamling(){return <main>
 <section className="areaHero"><div className="wrap"><p className="eyebrow">Grundejerforeningen Ravnsbjerg</p><h1>Generalforsamling</h1><p className="lead">Her finder du fristerne og det seneste referat.</p></div></section>
