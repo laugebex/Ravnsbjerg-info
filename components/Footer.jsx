@@ -1,1 +1,1 @@
-export function Footer(){return <footer><div className="wrap footer"><div><strong>Grundejerforeningen Ravnsbjerg</strong><small>Gjellerup · Herning</small></div><a className="footerFacebook" href="https://www.facebook.com/groups/ravnsbjerg">Facebook-gruppen →</a></div></footer>}
+export function Footer(){return <footer><div className="wrap footer"><div><strong>Grundejerforeningen Ravnsbjerg</strong><small>Gjellerup · Herning</small></div><a className="footerFacebook" href="https://www.facebook.com/groups/ravnsbjerg">Privat Facebook-gruppe →</a></div></footer>}
