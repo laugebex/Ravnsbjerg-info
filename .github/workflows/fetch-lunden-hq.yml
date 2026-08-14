@@ -1,4 +1,4 @@
-name: Fetch Lunden HQ assets
+name: Fetch homepage HQ assets
 
 on:
   push:
@@ -15,15 +15,17 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4
 
-      - name: Fetch full-resolution Lunden images
+      - name: Fetch full-resolution homepage images
         shell: bash
         run: |
           set -euo pipefail
           mkdir -p public/images
           curl --fail --location --retry 3 'https://398e19644f.clvaw-cdnwnd.com/924937a717deb337e31c66e81824097a/200000040-1549015492/df6156b8-e6cd-4fd6-a62d-a817fed3fcd0-1.webp?ph=398e19644f' -o public/images/lunden-2-hq.webp
           curl --fail --location --retry 3 'https://398e19644f.clvaw-cdnwnd.com/924937a717deb337e31c66e81824097a/200000041-1c7de1c7e0/ea6e5aa3-1b01-47d3-8fd4-1cae02db549f.webp?ph=398e19644f' -o public/images/lunden-1-hq.webp
+          curl --fail --location --retry 3 'https://398e19644f.clvaw-cdnwnd.com/924937a717deb337e31c66e81824097a/200000009-5ac155ac17/Hjertestarter.webp?ph=398e19644f' -o public/images/hjertestarter-hq.webp
           test -s public/images/lunden-2-hq.webp
           test -s public/images/lunden-1-hq.webp
+          test -s public/images/hjertestarter-hq.webp
 
       - name: Commit downloaded assets
         shell: bash
@@ -31,9 +33,9 @@ jobs:
           set -euo pipefail
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add public/images/lunden-1-hq.webp public/images/lunden-2-hq.webp
+          git add public/images/lunden-1-hq.webp public/images/lunden-2-hq.webp public/images/hjertestarter-hq.webp
           if git diff --cached --quiet; then
             exit 0
           fi
-          git commit -m 'Add full-resolution Lunden images'
+          git commit -m 'Add full-resolution homepage images'
           git push
