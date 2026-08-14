@@ -1,6 +1,7 @@
 import './globals.css'
 import './review.css'
 import './ux.css'
+import './home.css'
 import {Header} from '../components/Header'
 import {Footer} from '../components/Footer'
 
