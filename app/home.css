@@ -1,0 +1,13 @@
+.homeHeader .nav{justify-content:flex-start}
+.heroQuick{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:24px;max-width:620px}
+.heroQuick a{display:grid;grid-template-columns:36px minmax(0,1fr) auto;gap:11px;align-items:center;min-height:72px;padding:12px 13px;border-radius:15px;background:var(--green);color:#fff;text-decoration:none;box-shadow:0 8px 24px rgba(22,55,42,.08)}
+.heroQuick a:hover{background:var(--green2)}
+.heroQuick b{display:grid;place-items:center;width:36px;height:36px;border:1px solid rgba(255,255,255,.28);border-radius:50%;color:var(--lime);font-size:17px}
+.heroQuick span{min-width:0}
+.heroQuick strong,.heroQuick small{display:block}
+.heroQuick strong{font-size:14px;line-height:1.25}
+.heroQuick small{margin-top:3px;color:#c8d5ce;font-size:11px;line-height:1.25}
+.heroQuick i{font-style:normal;color:var(--lime);font-size:18px}
+@media(max-width:900px){.heroQuick{max-width:none}}
+@media(max-width:620px){.heroQuick{gap:8px;margin-top:20px}.heroQuick a{min-height:68px;padding:11px}.heroQuick strong{font-size:13px}}
+@media(max-width:430px){.heroQuick{grid-template-columns:1fr}}
