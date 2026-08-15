@@ -22,15 +22,18 @@ jobs:
           const fs = require('fs')
           const chunks = []
           for (let i = 0; i < 8; i++) {
-            const text = fs.readFileSync(`data/localPhotos/hero${i}.js`, 'utf8')
-            const match = text.match(/export default '([^']+)'/)
-            if (!match) throw new Error(`Could not read hero${i}.js`)
-            chunks.push(match[1])
+            let text = fs.readFileSync(`data/localPhotos/hero${i}.js`, 'utf8').trim()
+            text = text.replace(/^export default '/, '')
+            text = text.replace(/';?$/, '')
+            const base64 = text.replace(/[^A-Za-z0-9+/=]/g, '')
+            if (!base64) throw new Error(`Could not read hero${i}.js`)
+            chunks.push(base64)
           }
           const image = Buffer.from(chunks.join(''), 'base64')
           fs.mkdirSync('public/images', {recursive:true})
           fs.writeFileSync('public/images/hero-ravnsbjerg.avif', image)
           console.log(`Wrote ${image.length} bytes`)
+          if (image.length < 50000) throw new Error(`Hero image is unexpectedly small: ${image.length} bytes`)
           NODE
       - name: Commit hero image
         run: |
