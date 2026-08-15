@@ -1,0 +1,42 @@
+name: Import Gjellerup images temporary
+
+on:
+  push:
+    branches:
+      - image-batch-gjellerup-20260815
+    paths:
+      - .image-batch/ready.json
+
+permissions:
+  contents: write
+
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Assemble photos
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/gjellerup
+          for name in sti panorama udsigt; do
+            cat .image-batch/${name}-*.txt | tr -d '\n\r' | base64 -d > /tmp/gjellerup/${name}.webp
+          done
+          test "$(sha256sum /tmp/gjellerup/sti.webp | cut -d' ' -f1)" = "a955860d5c5e181960c4a9623f6c3767d76eac8a1e6a394af23a3b3c0caa940b"
+          test "$(sha256sum /tmp/gjellerup/panorama.webp | cut -d' ' -f1)" = "a714ef2e62b8f82615f5a449be027af0aa5698e511ca4834b7b9096a750b8ec4"
+          test "$(sha256sum /tmp/gjellerup/udsigt.webp | cut -d' ' -f1)" = "f6391a9110b911050494c22b095afb27f7c22045dd23f2d9aa472c1afe48df19"
+      - name: Commit photos to main
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin main
+          git checkout -B main origin/main
+          cp /tmp/gjellerup/sti.webp public/images/gjellerup-enge-sti.webp
+          cp /tmp/gjellerup/panorama.webp public/images/gjellerup-enge-panorama.webp
+          cp /tmp/gjellerup/udsigt.webp public/images/gjellerup-enge-udsigt.webp
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/images/gjellerup-enge-sti.webp public/images/gjellerup-enge-panorama.webp public/images/gjellerup-enge-udsigt.webp
+          git commit -m "Fix Gjellerup Enge photos"
+          git push origin HEAD:main
