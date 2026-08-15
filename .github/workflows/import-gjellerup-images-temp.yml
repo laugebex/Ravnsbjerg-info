@@ -5,7 +5,7 @@ on:
     branches:
       - image-batch-gjellerup-20260815
     paths:
-      - .image-batch/ready.json
+      - .image-batch2/ready.json
 
 permissions:
   contents: write
@@ -15,17 +15,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Assemble photos
+      - name: Assemble and verify photos
         shell: bash
         run: |
           set -euo pipefail
           mkdir -p /tmp/gjellerup
           for name in sti panorama udsigt; do
-            cat .image-batch/${name}-*.txt | tr -d '\n\r' | base64 -d > /tmp/gjellerup/${name}.webp
+            cat .image-batch2/${name}-*.txt | tr -d '\n\r' | base64 -d > /tmp/gjellerup/${name}.webp
           done
-          test "$(sha256sum /tmp/gjellerup/sti.webp | cut -d' ' -f1)" = "a955860d5c5e181960c4a9623f6c3767d76eac8a1e6a394af23a3b3c0caa940b"
-          test "$(sha256sum /tmp/gjellerup/panorama.webp | cut -d' ' -f1)" = "a714ef2e62b8f82615f5a449be027af0aa5698e511ca4834b7b9096a750b8ec4"
-          test "$(sha256sum /tmp/gjellerup/udsigt.webp | cut -d' ' -f1)" = "f6391a9110b911050494c22b095afb27f7c22045dd23f2d9aa472c1afe48df19"
+          test "$(sha256sum /tmp/gjellerup/sti.webp | cut -d' ' -f1)" = "3f0c7417992660b58f5775a221e6804250968ad127b71b7303228975ab9fdb60"
+          test "$(sha256sum /tmp/gjellerup/panorama.webp | cut -d' ' -f1)" = "61c6ebd16094eaf7a1817558da9ec6f15a2503d30dbbe2d699edb652757b351c"
+          test "$(sha256sum /tmp/gjellerup/udsigt.webp | cut -d' ' -f1)" = "326d6cb0ec8feca6ea83ccd6c47f6b7fd15ec84ee49efc12950bf197289d2ede"
+          file /tmp/gjellerup/*.webp
       - name: Commit photos to main
         shell: bash
         run: |
@@ -40,3 +41,7 @@ jobs:
           git add public/images/gjellerup-enge-sti.webp public/images/gjellerup-enge-panorama.webp public/images/gjellerup-enge-udsigt.webp
           git commit -m "Fix Gjellerup Enge photos"
           git push origin HEAD:main
+      - name: Remove upload branch
+        if: success()
+        shell: bash
+        run: git push origin --delete "$GITHUB_REF_NAME" || true
