@@ -1,9 +1,9 @@
 import {INaturalistEmbed} from '../../components/INaturalistEmbed'
 
 const enge='/images/gjellerup-enge.webp'
-const engeTrail='/images/gjellerup-enge-sti.webp'
-const engePanorama='/images/gjellerup-enge-panorama.webp'
-const engeView='/images/gjellerup-enge-udsigt.webp'
+const engeTrail='/images/gjellerup-enge-sti.avif'
+const engePanorama='/images/gjellerup-enge-panorama.avif'
+const engeView='/images/gjellerup-enge-udsigt.avif'
 const engeReport='https://398e19644f.clvaw-cdnwnd.com/924937a717deb337e31c66e81824097a/200000012-376e1376e4/%C3%85rsberetning%20for%20Gjellerup%20enge%202024.pdf?ph=398e19644f'
 const title='Gjellerup Enge | Grundejerforeningen Ravnsbjerg'
 const description='Naturprojektet Gjellerup Enge ved Ravnsbjerg: stier, natur, iNaturalist og nogle af de arter, der er registreret i området.'
