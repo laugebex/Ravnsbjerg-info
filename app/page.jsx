@@ -1,13 +1,5 @@
 import {news,board,documents} from '../data/content'
 import {ContactForm} from '../components/ContactForm'
-import hero0 from '../data/localPhotos/hero0'
-import hero1 from '../data/localPhotos/hero1'
-import hero2 from '../data/localPhotos/hero2'
-import hero3 from '../data/localPhotos/hero3'
-import hero4 from '../data/localPhotos/hero4'
-import hero5 from '../data/localPhotos/hero5'
-import hero6 from '../data/localPhotos/hero6'
-import hero7 from '../data/localPhotos/hero7'
 
 const facebook='https://www.facebook.com/groups/ravnsbjerg'
 const heart='/images/hjertestarter-hq.webp'
@@ -16,10 +8,9 @@ const lunden1='/images/lunden-1-hq.webp'
 const lunden1_700='/images/lunden-1-700.webp'
 const lunden2='/images/lunden-2-hq.webp'
 const lunden2_700='/images/lunden-2-700.webp'
-const heroImage=`data:image/avif;base64,${hero0}${hero1}${hero2}${hero3}${hero4}${hero5}${hero6}${hero7}`
 
 export default function Home(){return <main>
-<section className="hero"><div className="wrap heroGrid"><div><p className="eyebrow">Grundejerforeningen · Gjellerup</p><h1>Ravnsbjerg</h1><p className="lead">Her finder du det vigtigste fra grundejerforeningen samlet ét sted.</p><p className="heroFacebook">Små nyheder, arrangementer og det, der sker her og nu, ligger i <a href={facebook}>vores private Facebook-gruppe →</a></p><nav className="heroQuick" aria-label="Genveje på forsiden"><a href="#hjertestarter"><b aria-hidden="true">♥</b><span><strong>Hjertestarter</strong><small>Ravnsbjerg Krat 2</small></span><i aria-hidden="true">→</i></a><a href="#kontakt"><b aria-hidden="true">✉</b><span><strong>Kontakt bestyrelsen</strong><small>Bestyrelse og besked</small></span><i aria-hidden="true">→</i></a><a href="#lunden"><b aria-hidden="true">↟</b><span><strong>Lunden</strong><small>Fælles grønt område</small></span><i aria-hidden="true">→</i></a><a href="#ny-i-ravnsbjerg"><b aria-hidden="true">⌖</b><span><strong>Ny i Ravnsbjerg</strong><small>Om området</small></span><i aria-hidden="true">→</i></a><a href="#generalforsamling"><b aria-hidden="true">◎</b><span><strong>Generalforsamling</strong><small>Frister og referat</small></span><i aria-hidden="true">→</i></a><a href="#vedtaegter"><b aria-hidden="true">§</b><span><strong>Vedtægter</strong><small>Gældende ordlyd</small></span><i aria-hidden="true">→</i></a></nav></div><div className="visual photoHero"><img src={heroImage} width="1600" height="714" alt="Luftfoto over Ravnsbjerg og området omkring Gjellerup Enge" fetchPriority="high"/></div></div></section>
+<section className="hero"><div className="wrap heroGrid"><div><p className="eyebrow">Grundejerforeningen · Gjellerup</p><h1>Ravnsbjerg</h1><p className="lead">Her finder du det vigtigste fra grundejerforeningen samlet ét sted.</p><p className="heroFacebook">Små nyheder, arrangementer og det, der sker her og nu, ligger i <a href={facebook}>vores private Facebook-gruppe →</a></p><nav className="heroQuick" aria-label="Genveje på forsiden"><a href="#hjertestarter"><b aria-hidden="true">♥</b><span><strong>Hjertestarter</strong><small>Ravnsbjerg Krat 2</small></span><i aria-hidden="true">→</i></a><a href="#kontakt"><b aria-hidden="true">✉</b><span><strong>Kontakt bestyrelsen</strong><small>Bestyrelse og besked</small></span><i aria-hidden="true">→</i></a><a href="#lunden"><b aria-hidden="true">↟</b><span><strong>Lunden</strong><small>Fælles grønt område</small></span><i aria-hidden="true">→</i></a><a href="#ny-i-ravnsbjerg"><b aria-hidden="true">⌖</b><span><strong>Ny i Ravnsbjerg</strong><small>Om området</small></span><i aria-hidden="true">→</i></a><a href="#generalforsamling"><b aria-hidden="true">◎</b><span><strong>Generalforsamling</strong><small>Frister og referat</small></span><i aria-hidden="true">→</i></a><a href="#vedtaegter"><b aria-hidden="true">§</b><span><strong>Vedtægter</strong><small>Gældende ordlyd</small></span><i aria-hidden="true">→</i></a></nav></div><div className="visual photoHero"><img src="/images/hero-ravnsbjerg.avif" width="1600" height="714" alt="Luftfoto over Ravnsbjerg og området omkring Gjellerup Enge" fetchPriority="high"/></div></div></section>
 
 <section id="hjertestarter" className="section cream"><div className="wrap areaFeature"><div><p className="eyebrow">Praktisk</p><h2>Hjertestarter</h2><p className="leadSmall">Foreningens hjertestarter hænger på Ravnsbjerg Krat 2.</p><p>Den sidder bag den markerede dør til redskabsrummet i carporten til højre. Indgangen til Krat 2 er fra Ravnsbjergvej.</p></div><div className="areaHeroPhoto heartPhoto"><img src={heart700} srcSet={`${heart700} 700w, ${heart} 1506w`} sizes="(max-width: 900px) calc(100vw - 28px), 48vw" width="1506" height="787" alt="Foreningens hjertestarter på Ravnsbjerg Krat 2" loading="lazy"/></div></div></section>
 
