@@ -1,0 +1,42 @@
+name: Build hero image
+
+on:
+  push:
+    branches: [photo-import-v2]
+    paths:
+      - '.github/workflows/build-hero.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  build-hero:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: photo-import-v2
+      - name: Decode hero image
+        run: |
+          node <<'NODE'
+          const fs = require('fs')
+          const chunks = []
+          for (let i = 0; i < 8; i++) {
+            const text = fs.readFileSync(`data/localPhotos/hero${i}.js`, 'utf8')
+            const match = text.match(/export default '([^']+)'/)
+            if (!match) throw new Error(`Could not read hero${i}.js`)
+            chunks.push(match[1])
+          }
+          const image = Buffer.from(chunks.join(''), 'base64')
+          fs.mkdirSync('public/images', {recursive:true})
+          fs.writeFileSync('public/images/hero-ravnsbjerg.avif', image)
+          console.log(`Wrote ${image.length} bytes`)
+          NODE
+      - name: Commit hero image
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/images/hero-ravnsbjerg.avif
+          git diff --cached --quiet && exit 0
+          git commit -m "Add aerial hero image"
+          git push origin HEAD:photo-import-v2
