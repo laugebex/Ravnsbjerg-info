@@ -1,0 +1,9 @@
+{
+  "target": "public/images/gjellerup-enge-panorama.avif",
+  "bytes": 11139,
+  "sha256": "a3b3df429119bd1400f693945e754302aa27f5d81cada0bae42cb9d36bb02e3e",
+  "chunks": [
+    ".image-upload/chunk-001.txt",
+    ".image-upload/chunk-002.txt"
+  ]
+}
