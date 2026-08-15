@@ -1,0 +1,58 @@
+name: Verify live Gjellerup Enge photos
+
+on:
+  push:
+    branches:
+      - verify-live-20260815-gjellerup-enge
+    paths:
+      - .github/workflows/verify-live-gjellerup-temp.yml
+
+permissions:
+  contents: write
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Verify production page and photos
+        shell: bash
+        run: |
+          set -euo pipefail
+          page='https://ravnsbjerg.info/gjellerup-enge'
+          ok=0
+          for attempt in $(seq 1 18); do
+            echo "Live check attempt $attempt/18"
+            if curl -fsSL --connect-timeout 10 --max-time 30 "$page" -o /tmp/page.html \
+              && grep -q '/images/gjellerup-enge-sti.webp' /tmp/page.html \
+              && grep -q '/images/gjellerup-enge-panorama.webp' /tmp/page.html \
+              && grep -q '/images/gjellerup-enge-udsigt.webp' /tmp/page.html \
+              && curl -fsSL --connect-timeout 10 --max-time 30 'https://ravnsbjerg.info/images/gjellerup-enge-sti.webp' -o /tmp/sti.webp \
+              && curl -fsSL --connect-timeout 10 --max-time 30 'https://ravnsbjerg.info/images/gjellerup-enge-panorama.webp' -o /tmp/panorama.webp \
+              && curl -fsSL --connect-timeout 10 --max-time 30 'https://ravnsbjerg.info/images/gjellerup-enge-udsigt.webp' -o /tmp/udsigt.webp; then
+              sti="$(sha256sum /tmp/sti.webp | cut -d' ' -f1)"
+              panorama="$(sha256sum /tmp/panorama.webp | cut -d' ' -f1)"
+              udsigt="$(sha256sum /tmp/udsigt.webp | cut -d' ' -f1)"
+              echo "sti: $sti"
+              echo "panorama: $panorama"
+              echo "udsigt: $udsigt"
+              if [ "$sti" = '1a5e7af198f1d61e8a0046ec123f14f35f96131e3370021f1eeb27fa100ec052' ] \
+                && [ "$panorama" = '3aa1a23edb021126574ca67733d78d1896f5a0dcea76dcd0254dedebe34a7534' ] \
+                && [ "$udsigt" = '80bea26fca138d931597cbce05294927e9f2dcb77b888f9acce2487ec20fd738' ]; then
+                ok=1
+                break
+              fi
+            fi
+            sleep 5
+          done
+          if [ "$ok" -ne 1 ]; then
+            echo 'Production does not yet serve the expected page and exact photos.' >&2
+            exit 1
+          fi
+          echo 'Production page is reachable and serves all three exact local photos.'
+
+      - name: Remove temporary verification branch
+        if: success()
+        shell: bash
+        run: git push origin --delete "$GITHUB_REF_NAME" || true
