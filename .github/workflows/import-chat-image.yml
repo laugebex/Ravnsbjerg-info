@@ -1,0 +1,83 @@
+name: Import chat image
+
+on:
+  push:
+    branches:
+      - 'chat-image-upload-*'
+    paths:
+      - '.image-upload/manifest.json'
+
+permissions:
+  contents: write
+
+jobs:
+  import-image:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out upload branch
+        uses: actions/checkout@v4
+
+      - name: Assemble and verify image
+        id: image
+        shell: bash
+        run: |
+          node <<'NODE'
+          const fs = require('fs')
+          const path = require('path')
+          const crypto = require('crypto')
+
+          const manifest = JSON.parse(fs.readFileSync('.image-upload/manifest.json', 'utf8'))
+          const target = manifest.target
+          const chunks = manifest.chunks
+
+          if (typeof target !== 'string' || !/^public\/images\/[A-Za-z0-9._/-]+$/.test(target) || target.includes('..')) {
+            throw new Error(`Invalid target path: ${target}`)
+          }
+          if (!Array.isArray(chunks) || chunks.length < 1 || chunks.some(p => !/^\.image-upload\/chunk-\d+\.txt$/.test(p))) {
+            throw new Error('Invalid chunk list')
+          }
+
+          const base64 = chunks.map(p => fs.readFileSync(p, 'utf8').trim()).join('')
+          const image = Buffer.from(base64, 'base64')
+          const sha256 = crypto.createHash('sha256').update(image).digest('hex')
+
+          if (Number.isInteger(manifest.bytes) && image.length !== manifest.bytes) {
+            throw new Error(`Byte count mismatch: expected ${manifest.bytes}, got ${image.length}`)
+          }
+          if (manifest.sha256 && sha256 !== manifest.sha256) {
+            throw new Error(`SHA-256 mismatch: expected ${manifest.sha256}, got ${sha256}`)
+          }
+          if (image.length < 1024) {
+            throw new Error(`Image is unexpectedly small: ${image.length} bytes`)
+          }
+
+          fs.writeFileSync('/tmp/chat-image.bin', image)
+          fs.writeFileSync('/tmp/chat-image-target', target)
+          fs.appendFileSync(process.env.GITHUB_OUTPUT, `target=${target}\n`)
+          console.log(`Verified ${target}: ${image.length} bytes, sha256 ${sha256}`)
+          NODE
+
+      - name: Commit finished image to main
+        shell: bash
+        run: |
+          set -euo pipefail
+          target="$(cat /tmp/chat-image-target)"
+          git fetch origin main
+          git checkout -B main origin/main
+          mkdir -p "$(dirname "$target")"
+          cp /tmp/chat-image.bin "$target"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "$target"
+          if git diff --cached --quiet; then
+            echo "Image is unchanged; nothing to commit."
+          else
+            git commit -m "Update $(basename "$target")"
+            git push origin HEAD:main
+          fi
+
+      - name: Remove temporary upload branch
+        if: success()
+        shell: bash
+        run: |
+          git push origin --delete "$GITHUB_REF_NAME" || true
