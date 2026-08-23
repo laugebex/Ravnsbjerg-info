@@ -3,10 +3,12 @@ import {useEffect,useRef,useState} from 'react'
 
 const spots=[
   {id:'ravnsbjerg',name:'Ravnsbjerg',detail:'Kvarteret',description:'Grundejerforeningens område.',lat:56.14265361,lng:9.04489274},
-  {id:'lunden',name:'Lunden',detail:'Fælles område',description:'Foreningens grønne område med adgang for medlemmer.',lat:56.14045,lng:9.0417},
-  {id:'enge',name:'Gjellerup Enge',detail:'144 ha natur',description:'Natur, stier, vand og græssende dyr lige ved Ravnsbjerg.',lat:56.139613,lng:9.047397},
-  {id:'skole',name:'Lindbjergskolen',detail:'Skole og bibliotek',description:'Folkeskole fra 0.-9. klasse på Frølundvej 39.',lat:56.1381493,lng:9.06442041},
-  {id:'halln',name:"Hall’n",detail:'Sport og fritid',description:'Det lokale idræts- og samlingssted ved skolen.',lat:56.13759,lng:9.06331},
+  {id:'lunden',name:'Lunden',detail:'Fælles område',description:'Foreningens grønne område med adgang for medlemmer.',lat:56.1403,lng:9.0443},
+  {id:'enge',name:'Gjellerup Enge',detail:'144 ha natur',description:'Natur, stier, vand og græssende dyr lige ved Ravnsbjerg.',lat:56.1397,lng:9.0377},
+  {id:'skole',name:'Lindbjergskolen',detail:'Skole og bibliotek',description:'Folkeskole fra 0.-9. klasse på Frølundvej 39.',lat:56.1381493,lng:9.06442041,href:'https://lindbjergskolen.aula.dk/',linkLabel:'Skolens hjemmeside'},
+  {id:'halln',name:"Hall’n",detail:'Sport og fritid',description:'Det lokale idræts- og samlingssted ved skolen.',lat:56.13759,lng:9.06331,href:'https://halln.dk/',linkLabel:'Hall’ns hjemmeside'},
+  {id:'friskole',name:'Hammerum Friskole',detail:'Fri- og efterskole',description:'Friskole på Tornebuskvej 2.',lat:56.13391084,lng:9.05666777,href:'https://hammerumfriskole.dk/',linkLabel:'Friskolens hjemmeside'},
+  {id:'hammerumpigen',name:'Hammerum-pigen',detail:'Lokalhistorie',description:'Findestedet for gravpladsen ved K. Møllers Vej.',lat:56.1382,lng:9.0531,href:'/hammerum-pigen',linkLabel:'Læs om Hammerum-pigen'},
   {id:'indkoeb',name:'Dagligvarer',detail:'Nærmeste indkøb',description:'REMA 1000 på Klokkekildevej; der er flere muligheder i Hammerum.',lat:56.14718,lng:9.04448}
 ]
 
@@ -46,11 +48,13 @@ export function LocalMap(){
     let alive=true
     loadLeaflet().then(L=>{
       if(!alive||!el.current||map.current)return
-      map.current=L.map(el.current,{scrollWheelZoom:false}).setView([56.142,9.052],14)
+      map.current=L.map(el.current,{scrollWheelZoom:false})
       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; OpenStreetMap-bidragsydere'}).addTo(map.current)
       spots.forEach(s=>{
-        markers.current[s.id]=L.marker([s.lat,s.lng]).addTo(map.current).bindPopup(`<strong>${s.name}</strong><br>${s.description}`)
+        const name=s.href?`<a href="${s.href}"><strong>${s.name}</strong></a>`:`<strong>${s.name}</strong>`
+        markers.current[s.id]=L.marker([s.lat,s.lng]).addTo(map.current).bindPopup(`${name}<br>${s.description}`)
       })
+      map.current.fitBounds(L.latLngBounds(spots.map(s=>[s.lat,s.lng])),{padding:[28,28],maxZoom:14})
       setStatus('ready')
     }).catch(()=>{if(alive)setStatus('error')})
     return()=>{alive=false;if(map.current){map.current.remove();map.current=null;markers.current={}}}
@@ -68,7 +72,7 @@ export function LocalMap(){
       {status==='error'&&<div className="mapStatus mapError" role="alert"><strong>Kortet kunne ikke indlæses.</strong><a href="https://www.google.com/maps/search/?api=1&query=Ravnsbjerg+Krat,+7400+Herning">Åbn området i Google Maps →</a></div>}
       <noscript><p className="mapStatus">Kortet kræver JavaScript. <a href="https://www.google.com/maps/search/?api=1&query=Ravnsbjerg+Krat,+7400+Herning">Åbn området i Google Maps →</a></p></noscript>
     </div>
-    <div className="mapPlaceButtons" aria-label="Steder på kortet">{spots.map(s=><button type="button" key={s.id} disabled={status!=='ready'} onClick={()=>show(s)}><small>{s.detail}</small><strong>{s.name}</strong><span>{s.description}</span></button>)}</div>
-    <p className="smallNote">Markeringen af Lunden viser området omtrentligt. Det er ikke en matrikelgrænse.</p>
+    <div className="mapPlaceButtons" aria-label="Steder på kortet">{spots.map(s=><div className="mapPlaceItem" key={s.id}><button type="button" disabled={status!=='ready'} onClick={()=>show(s)}><small>{s.detail}</small><strong>{s.name}</strong><span>{s.description}</span></button>{s.href&&<a className="mapPlaceLink" href={s.href}>{s.linkLabel} →</a>}</div>)}</div>
+    <p className="smallNote">Markeringerne af Lunden og Gjellerup Enge viser omtrentlige midtpunkter i områderne – ikke matrikelgrænser.</p>
   </div>
 }
