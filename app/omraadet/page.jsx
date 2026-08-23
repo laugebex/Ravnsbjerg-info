@@ -1,14 +1,14 @@
 import {LocalMap} from '../../components/LocalMap'
 
 const facebook='https://www.facebook.com/groups/ravnsbjerg'
-const enge='/images/gjellerup-enge.webp'
+const areaHero='/images/lunden-2-hq.webp'
 const engeAerial='https://naturfonden.dk/wp-content/uploads/2021/05/FOTO-Tobias-Noergaard-Pedersen-Herning-Kommune-3.jpg'
 const title='Om området | Grundejerforeningen Ravnsbjerg'
 const description='Et kort overblik over Ravnsbjerg, Lunden, Gjellerup Enge, skole, indkøb, Hall’n og årets faste arrangementer.'
 export const metadata={title,description,openGraph:{title,description,url:'/omraadet'}}
 
 export default function Omraadet(){return <main>
-<section className="areaHero"><div className="wrap areaHeroGrid"><div><p className="eyebrow">Ravnsbjerg · Gjellerup</p><h1>Ny i Ravnsbjerg?</h1><p className="lead">Her er den korte udgave: hvor vi bor, hvad der ligger tæt på, og hvad der plejer at ske i løbet af året.</p><p className="areaIntro">Datoer, små nyheder og arrangementer kommer løbende i <a href={facebook}>den private Facebook-gruppe →</a></p></div><div className="areaHeroPhoto"><img src={enge} width="287" height="510" alt="Natur ved Gjellerup Enge" fetchPriority="high"/></div></div></section>
+<section className="areaHero"><div className="wrap areaHeroGrid"><div><p className="eyebrow">Ravnsbjerg · Gjellerup</p><h1>Ny i Ravnsbjerg?</h1><p className="lead">Her er den korte udgave: hvor vi bor, hvad der ligger tæt på, og hvad der plejer at ske i løbet af året.</p><p className="areaIntro">Datoer, små nyheder og arrangementer kommer løbende i <a href={facebook}>den private Facebook-gruppe →</a></p></div><div className="areaHeroPhoto"><img src={areaHero} width="1920" height="1440" alt="Indkørslen til Lunden ved Ravnsbjerg" fetchPriority="high"/></div></div></section>
 
 <section className="section"><div className="wrap"><div className="sectionHead"><div><p className="eyebrow">Kort</p><h2>Det ligger tæt på</h2></div><p>Tryk på et sted under kortet for at zoome ind og se placeringen.</p></div><LocalMap/></div></section>
 
