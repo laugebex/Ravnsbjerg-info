@@ -3,12 +3,12 @@ import {useEffect,useRef,useState} from 'react'
 
 const spots=[
   {id:'ravnsbjerg',name:'Ravnsbjerg',detail:'Kvarteret',description:'Grundejerforeningens område.',lat:56.14265361,lng:9.04489274},
-  {id:'lunden',name:'Lunden',detail:'Fælles område',description:'Foreningens grønne område med adgang for medlemmer.',lat:56.1403,lng:9.0443},
-  {id:'enge',name:'Gjellerup Enge',detail:'144 ha natur',description:'Natur, stier, vand og græssende dyr lige ved Ravnsbjerg.',lat:56.1397,lng:9.0377},
+  {id:'lunden',name:'Lunden',detail:'Fælles område',description:'Foreningens grønne område med adgang for medlemmer.',lat:56.13868,lng:9.04384},
+  {id:'enge',name:'Gjellerup Enge',detail:'144 ha natur',description:'Natur, stier, vand og græssende dyr lige ved Ravnsbjerg.',lat:56.13651,lng:9.04747},
   {id:'skole',name:'Lindbjergskolen',detail:'Skole og bibliotek',description:'Folkeskole fra 0.-9. klasse på Frølundvej 39.',lat:56.1381493,lng:9.06442041,href:'https://lindbjergskolen.aula.dk/',linkLabel:'Skolens hjemmeside'},
   {id:'halln',name:"Hall’n",detail:'Sport og fritid',description:'Det lokale idræts- og samlingssted ved skolen.',lat:56.13759,lng:9.06331,href:'https://halln.dk/',linkLabel:'Hall’ns hjemmeside'},
   {id:'friskole',name:'Hammerum Friskole',detail:'Fri- og efterskole',description:'Friskole på Tornebuskvej 2.',lat:56.13391084,lng:9.05666777,href:'https://hammerumfriskole.dk/',linkLabel:'Friskolens hjemmeside'},
-  {id:'hammerumpigen',name:'Hammerum-pigen',detail:'Lokalhistorie',description:'Findestedet for gravpladsen ved K. Møllers Vej.',lat:56.1382,lng:9.0531,href:'/hammerum-pigen',linkLabel:'Læs om Hammerum-pigen'},
+  {id:'hammerumpigen',name:'Hammerum-pigen',detail:'Lokalhistorie',description:'Findestedet for gravpladsen ved K. Møllers Vej.',lat:56.13866,lng:9.05054,href:'/hammerum-pigen',linkLabel:'Læs om Hammerum-pigen'},
   {id:'indkoeb',name:'Dagligvarer',detail:'Nærmeste indkøb',description:'REMA 1000 på Klokkekildevej; der er flere muligheder i Hammerum.',lat:56.14718,lng:9.04448}
 ]
 
