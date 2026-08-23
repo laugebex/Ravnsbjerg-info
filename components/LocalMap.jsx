@@ -9,6 +9,8 @@ const spots=[
   {id:'halln',name:"Hall’n",detail:'Sport og fritid',description:'Det lokale idræts- og samlingssted ved skolen.',lat:56.13759,lng:9.06331,href:'https://halln.dk/',linkLabel:'Hall’ns hjemmeside'},
   {id:'friskole',name:'Hammerum Friskole',detail:'Fri- og efterskole',description:'Friskole på Tornebuskvej 2.',lat:56.13391084,lng:9.05666777,href:'https://hammerumfriskole.dk/',linkLabel:'Friskolens hjemmeside'},
   {id:'hammerumpigen',name:'Hammerum-pigen',detail:'Lokalhistorie',description:'Findestedet for gravpladsen ved K. Møllers Vej.',lat:56.13866,lng:9.05054,href:'/hammerum-pigen',linkLabel:'Læs om Hammerum-pigen'},
+  {id:'365hammerum',name:'365discount Hammerum',detail:'Dagligvarer',description:'Dagligvarebutik på Hammerum Hovedgade 53.',lat:56.1333122,lng:9.0600281,href:'https://365discount.coop.dk/',linkLabel:'365discount'},
+  {id:'brugsenhammerum',name:'SuperBrugsen Hammerum',detail:'Dagligvarer',description:'Dagligvarebutik på Hammerum Hovedgade 72.',lat:56.1330338,lng:9.0619965,href:'https://superbrugsen.coop.dk/',linkLabel:'SuperBrugsen'},
   {id:'indkoeb',name:'Dagligvarer',detail:'Nærmeste indkøb',description:'REMA 1000 på Klokkekildevej; der er flere muligheder i Hammerum.',lat:56.14718,lng:9.04448}
 ]
 
