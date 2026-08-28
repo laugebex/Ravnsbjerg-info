@@ -9,6 +9,7 @@
 .heroQuick strong{font-size:14px;line-height:1.25}
 .heroQuick small{margin-top:3px;color:#c8d5ce;font-size:11px;line-height:1.25}
 .heroQuick i{font-style:normal;color:var(--lime);font-size:18px}
+.photoHero video{display:block;width:100%;height:100%;object-fit:cover}
 .homeNext{padding:46px 0 50px;border-top:1px solid var(--line);background:var(--cream)}
 .homeNextTitle{font-size:34px;margin:0 0 22px}
 .homeNextGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
