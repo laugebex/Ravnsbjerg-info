@@ -23,7 +23,7 @@ export function Header(){
   },[])
   return <header className={isHome?'header homeHeader':'header'}><div className="wrap nav">
     <Link href="/" className="brand" onClick={close}><span className="mark">R</span><span><strong>Ravnsbjerg</strong><small>Grundejerforeningen</small></span></Link>
-    {!isHome&&<><button className="menuButton" type="button" aria-label={open?'Luk menu':'Åbn menu'} aria-expanded={open} aria-controls="main-navigation" onClick={()=>setOpen(!open)}><span></span><span></span><span></span></button>
+    <button className="menuButton" type="button" aria-label={open?'Luk menu':'Åbn menu'} aria-expanded={open} aria-controls="main-navigation" onClick={()=>setOpen(!open)}><span className="menuBars" aria-hidden="true"><i></i><i></i><i></i></span><span className="menuText">{open?'Luk':'Menu'}</span></button>
     <nav id="main-navigation" className={open?'navLinks open':'navLinks'} aria-label="Hovedmenu">
       <Link onClick={close} href="/#hjertestarter">Hjertestarter</Link>
       <Link onClick={close} href="/#kontakt">Kontakt bestyrelsen</Link>
@@ -31,6 +31,6 @@ export function Header(){
       <Link onClick={close} href="/omraadet" aria-current={current('area')?'page':undefined}>Ny i Ravnsbjerg</Link>
       <Link onClick={close} href="/generalforsamling" aria-current={current('generalforsamling')?'page':undefined}>Generalforsamling</Link>
       <Link onClick={close} href="/vedtaegter" aria-current={current('vedtaegter')?'page':undefined}>Vedtægter</Link>
-    </nav></>}
+    </nav>
   </div></header>
 }
