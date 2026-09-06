@@ -9,7 +9,7 @@ export function Header(){
   const isHome=pathname==='/'
   const close=()=>setOpen(false)
   const current=(key)=>{
-    if(key==='area')return pathname==='/omraadet'||pathname.startsWith('/gjellerup-enge')||pathname.startsWith('/sport')||pathname.startsWith('/hammerum-pigen')
+    if(key==='area')return pathname==='/omraadet'||pathname.startsWith('/gjellerup-enge')||pathname.startsWith('/hammerum-pigen')
     if(key==='lunden')return pathname.startsWith('/lunden')
     if(key==='vedtaegter')return pathname.startsWith('/vedtaegter')
     if(key==='generalforsamling')return pathname.startsWith('/generalforsamling')
@@ -28,7 +28,7 @@ export function Header(){
       <Link onClick={close} href="/#hjertestarter">Hjertestarter</Link>
       <Link onClick={close} href="/#kontakt">Kontakt bestyrelsen</Link>
       <Link onClick={close} href="/lunden" aria-current={current('lunden')?'page':undefined}>Lunden</Link>
-      <Link onClick={close} href="/omraadet" aria-current={current('area')?'page':undefined}>Ny i Ravnsbjerg</Link>
+      <Link onClick={close} href="/omraadet" aria-current={current('area')?'page':undefined}>Om området</Link>
       <Link onClick={close} href="/generalforsamling" aria-current={current('generalforsamling')?'page':undefined}>Generalforsamling</Link>
       <Link onClick={close} href="/vedtaegter" aria-current={current('vedtaegter')?'page':undefined}>Vedtægter</Link>
     </nav>
