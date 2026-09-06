@@ -27,7 +27,10 @@
 .nextBar strong{font-size:14px;line-height:1.35}
 .nextBar i{font-style:normal;font-size:12px;font-weight:800;color:var(--lime);white-space:nowrap}
 .nextBar a:hover i{text-decoration:underline;text-underline-offset:3px}
+.boardPhoto{max-width:900px;margin:0 0 28px}
+.boardPhoto img{display:block;width:100%;height:auto;border-radius:22px;box-shadow:var(--shadow)}
+.boardPhoto figcaption{margin-top:9px;color:var(--muted);font-size:12px;line-height:1.45}
 .mapPlaceItem{display:flex;min-width:0;flex-direction:column}.mapPlaceItem button{width:100%;flex:1}.mapPlaceLink{display:block;margin-top:5px;padding:5px 3px;font-size:12px;font-weight:800;color:var(--green2);text-decoration:none}.mapPlaceLink:hover{text-decoration:underline;text-underline-offset:3px}
 @media(max-width:900px){.menuButton{display:flex;align-items:center;gap:8px}.heroQuick{max-width:none}}
-@media(max-width:620px){.heroQuick{gap:8px;margin-top:20px}.heroQuick a{min-height:68px;padding:11px}.heroQuick strong{font-size:13px}.nextBar a{min-height:72px;grid-template-columns:minmax(0,1fr) auto;gap:2px 12px;padding:12px 0}.nextBar span{grid-column:1}.nextBar strong{grid-column:1;font-size:13px}.nextBar i{grid-column:2;grid-row:1/3;align-self:center}}
+@media(max-width:620px){.heroQuick{gap:8px;margin-top:20px}.heroQuick a{min-height:68px;padding:11px}.heroQuick strong{font-size:13px}.nextBar a{min-height:72px;grid-template-columns:minmax(0,1fr) auto;gap:2px 12px;padding:12px 0}.nextBar span{grid-column:1}.nextBar strong{grid-column:1;font-size:13px}.nextBar i{grid-column:2;grid-row:1/3;align-self:center}.boardPhoto{margin-bottom:22px}.boardPhoto img{border-radius:18px}}
 @media(max-width:430px){.heroQuick{grid-template-columns:1fr}}
