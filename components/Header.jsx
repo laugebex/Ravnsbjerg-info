@@ -26,7 +26,8 @@ export function Header(){
     <button className="menuButton" type="button" aria-label={open?'Luk menu':'Åbn menu'} aria-expanded={open} aria-controls="main-navigation" onClick={()=>setOpen(!open)}><span className="menuBars" aria-hidden="true"><i></i><i></i><i></i></span><span className="menuText">{open?'Luk':'Menu'}</span></button>
     <nav id="main-navigation" className={open?'navLinks open':'navLinks'} aria-label="Hovedmenu">
       <Link onClick={close} href="/#hjertestarter">Hjertestarter</Link>
-      <Link onClick={close} href="/#kontakt">Kontakt bestyrelsen</Link>
+      <Link onClick={close} href="/#bestyrelsen">Bestyrelsen</Link>
+      <Link onClick={close} href="/#kontakt">Kontakt</Link>
       <Link onClick={close} href="/lunden" aria-current={current('lunden')?'page':undefined}>Lunden</Link>
       <Link onClick={close} href="/omraadet" aria-current={current('area')?'page':undefined}>Om området</Link>
       <Link onClick={close} href="/generalforsamling" aria-current={current('generalforsamling')?'page':undefined}>Generalforsamling</Link>
