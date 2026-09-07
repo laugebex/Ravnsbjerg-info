@@ -30,6 +30,7 @@ export function Header(){
       <Link onClick={close} href="/#kontakt">Kontakt</Link>
       <Link onClick={close} href="/lunden" aria-current={current('lunden')?'page':undefined}>Lunden</Link>
       <Link onClick={close} href="/omraadet" aria-current={current('area')?'page':undefined}>Om området</Link>
+      <Link onClick={close} href="/#aarshjul">Årshjul</Link>
       <Link onClick={close} href="/generalforsamling" aria-current={current('generalforsamling')?'page':undefined}>Generalforsamling</Link>
       <Link onClick={close} href="/vedtaegter" aria-current={current('vedtaegter')?'page':undefined}>Vedtægter</Link>
     </nav>
